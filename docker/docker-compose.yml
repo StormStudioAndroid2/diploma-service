@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  # app:
+  #   image: 'springio/diploma-spring-boot-docker'
+  #   build:
+  #     context: .
+  #   container_name: diploma-spring
+  #   depends_on:
+  #     - db
+  #   user: root
+  #   environment:
+  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/diplomadb
+  #     - SPRING_DATASOURCE_USERNAME=shreddinger
+  #     - SPRING_DATASOURCE_PASSWORD=independent1
+  #     - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+  #   ports:
+  #     - "8080:8080"
+  db:
+    container_name: diploma_container_postgres
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: shreddinger
+      POSTGRES_PASSWORD: independent1
+      POSTGRES_DB: diplomadb
+      PGDATA: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    volumes:
+     - db-data:/var/lib/postgresql/data
+  pgadmin:
+    container_name: diploma_container_pgadmin
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  db-data:
+  pgadmin-data:
+  

@@ -1,0 +1,9 @@
+<properties>
+    <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+    <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/diplomadb" />
+    <property name="javax.persistence.jdbc.user" value="shreddinger" />
+    <property name="javax.persistence.jdbc.password" value="independent1" />
+    <property name="hibernate.show_sql" value="true" />
+    <property name="hibernate.hbm2ddl.auto" value="create" />
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+</properties>
